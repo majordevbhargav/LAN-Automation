@@ -17,11 +17,11 @@ file - just name, IP, and device type:
 ```yaml
 devices:
   - name: core-switch-01
-    host: 10.5.1.20
+    host: 
     device_type: cisco_ios
 
   - name: aruba-switch-01
-    host: 172.29.129.63
+    host: 
     device_type: aruba_os
 ```
 

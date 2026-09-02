@@ -1,0 +1,4 @@
+# One command per line. Lines starting with # are ignored.
+show run
+show version
+show interfaces status

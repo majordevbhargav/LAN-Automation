@@ -1,20 +1,34 @@
 # LAN Automation
 
-A Python-based network device command runner for collecting operational output from Cisco and Aruba/HP switches.
+A Python-based network automation utility for collecting operational information from Cisco and Aruba/HP switches.
 
-## Overview
+## Workflow
 
-The tool reads a device inventory, connects through Netmiko, executes one or more CLI commands, and can save timestamped output per device.
+```text
+Inventory
+   |
+   v
+Device Connection
+   |
+   v
+CLI Commands
+   |
+   v
+Output Collection
+   |
+   v
+Timestamped Reports
+```
 
 ## Features
 
 - Cisco IOS / IOS-XE support
 - HP ProCurve / ArubaOS-Switch support
 - Inventory-driven execution
-- Multiple CLI commands per run
-- Timestamped output files
+- Multiple CLI commands
+- Timestamped output
 - Single-device targeting
-- Credential input through environment variables or a secure prompt
+- Credential input through secure prompts or environment variables
 
 ## Setup
 
@@ -22,51 +36,47 @@ The tool reads a device inventory, connects through Netmiko, executes one or mor
 pip install -r requirements.txt
 ```
 
-Define devices in `inventory.yaml` without storing passwords in the inventory.
+Define devices in `inventory.yaml` without storing passwords in source control.
 
-## Usage
-
-Run one command:
+## Examples
 
 ```bash
 python netdevice_runner.py -c "show run"
-```
-
-Run multiple commands and save results:
-
-```bash
 python netdevice_runner.py -c "show run" "show version" --save
-```
-
-Use a command file:
-
-```bash
 python netdevice_runner.py -f commands.txt --save
-```
-
-Target one device:
-
-```bash
 python netdevice_runner.py -c "show run" --only core-switch-01
 ```
 
+## Learning Direction
+
+This repository represents the programmable step between manual CLI work and declarative Ansible automation.
+
+It helped me practice:
+
+- Device connectivity
+- Network CLI automation
+- Inventory design
+- Output handling
+- Multi-vendor workflows
+- Automation safety
+
 ## Security
 
-Do not hardcode credentials. Use environment variables, prompts, or a proper secrets-management solution. Run the tool only against infrastructure you own or are authorized to manage.
+Never hardcode passwords. Use secure prompts, environment variables, or an approved secrets-management system.
+
+Only automate infrastructure you are authorized to manage.
 
 ## Future Direction
 
 - Parallel execution
-- Configuration push workflows
+- Configuration push
 - Configuration diffing
-- Structured output parsing
+- Structured parsing
 - Automated validation
-- Ansible-based equivalent
 - Centralized reporting
 
 ## Author
 
 **Dev Bhargav**
 
-- GitHub: https://github.com/majordevbhargav
-- LinkedIn: https://www.linkedin.com/in/devbhargav100
+[GitHub](https://github.com/majordevbhargav) · [LinkedIn](https://www.linkedin.com/in/devbhargav100)
